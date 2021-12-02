@@ -44,8 +44,8 @@ print("stdev train loss:", np.std(history.history["loss"]))
 train_gen = ImageDataGenerator(rescale=1./255, rotation_range=40, width_shift_range=0.2, height_shift_range=0.2, shear_range=0.2, zoom_range=0.2, horizontal_flip=True, fill_mode='nearest')
 train_ds = create_image_flow(train_gen, './train', (150, 150), 20, 'binary', True)
 
-val_gen = ImageDataGenerator(rescale=1./255, rotation_range=40, width_shift_range=0.2, height_shift_range=0.2, shear_range=0.2, zoom_range=0.2, horizontal_flip=True, fill_mode='nearest')
-val_ds = create_image_flow(val_gen, './validation', (150, 150), 32, 'binary', True)
+#val_gen = ImageDataGenerator(rescale=1./255, rotation_range=40, width_shift_range=0.2, height_shift_range=0.2, shear_range=0.2, zoom_range=0.2, horizontal_flip=True, fill_mode='nearest')
+#val_ds = create_image_flow(val_gen, './validation', (150, 150), 32, 'binary', True)
 
 history = model.fit(train_ds, steps_per_epoch=100, epochs=10, validation_data=val_ds, validation_steps=50)
 
